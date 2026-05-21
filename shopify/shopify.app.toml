@@ -1,0 +1,25 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "cdbbee02b71275c0df2bc0a554e0ff96"
+name = "moneyvibe-pixel"
+application_url = "https://addons.monevibe.com/api/shopify/auth"
+embedded = true
+
+[build]
+automatically_update_urls_on_dev = true
+
+[webhooks]
+api_version = "2026-01"
+
+  [[webhooks.subscriptions]]
+  topics = ["orders/paid", "orders/cancelled" ]
+  uri = "https://addons.monevibe.com/api/shopify/webhook"
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "read_customer_events,read_orders,write_pixels"
+
+[auth]
+redirect_urls = [
+  "https://addons.monevibe.com/api/shopify/callback"
+]
