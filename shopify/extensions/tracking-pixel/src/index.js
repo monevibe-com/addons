@@ -13,13 +13,13 @@ register(({ analytics, browser, settings, init }) => {
     const clickId = url.searchParams.get('clickid');
 
     if (clickId) {
-        browser.localStorage.setItem('moneyvibe_click_id', clickId).then(() => {
-            console.log('Monevibe click_id saved', clickId);
+        browser.localStorage.setItem('monevibe_click_id', clickId).then(() => {
+            console.log('Monevibe click_id saved!', clickId);
         });
     }
 
     const sendToBackend = async (eventName, payload) => {
-        const storedId = await browser.localStorage.getItem('moneyvibe_click_id');
+        const storedId = await browser.localStorage.getItem('monevibe_click_id');
 
         if (!storedId) {
             console.warn(`Monevibe click_id empty`);
